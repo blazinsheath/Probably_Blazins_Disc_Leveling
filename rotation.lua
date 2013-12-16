@@ -38,7 +38,8 @@ ProbablyEngine.rotation.register_custom(256, "Blazins Disc leveling", {
 	}}, --Spirit Shell
 	{ "596", {
 	  "player.spell(596).exists",
-	  "player.spell(109964).cooldown >= 50"
+	  "player.spell(109964).cooldown >= 50",
+	  "lowest.spell(596).range"
 	}, "lowest" }, --Prayer of Healing
 	
    -- Mana/Survival
@@ -46,17 +47,17 @@ ProbablyEngine.rotation.register_custom(256, "Blazins Disc leveling", {
 	{ "123040", { --Mindbender
 	  "player.spell(123040).exists",
 	  "player.mana < 95",
-	  "target.range < 41"
+	  "target.spell(123040.range"
 	}, "target" },
 	{ "34433", { --Shadowfiend
 	  "player.spell(34433).exists",	
       "player.mana < 95",	  
-      "target.range < 41"
+      "target.spell(34433).range"
     }, "target" },	
 	{ "14914", { -- Power Word: Solace
 	  "player.spell(14914).exists",
 	  "player.spell(129250).cooldown < .001",
-	  "target.range < 31" 
+	  "target.spell(14914).range" 
 	}, "target" },
 	{ "19236", { --Desperate Prayer
 	  "player.spell(19236).exists",
@@ -73,38 +74,38 @@ ProbablyEngine.rotation.register_custom(256, "Blazins Disc leveling", {
     { "17", { --Power Word: Shield
       "!tank.debuff(6788).any",
 	  "tank.health <= 100",
-	  "tank.range < 41"
+	  "tank.spell(17).range"
 	}, "tank" },
 	{ "33076", { --Prayer of Mending
 	  "player.spell(33076).exists",
 	  "tank.health <= 95",
-	  "tank.range < 41"
+	  "tank.spell(33076).range"
 	}, "tank" },
 	{ "139", { --Renew
 	  "player.spell(139).exists",
 	  "!tank.buff(139)", 
 	  "tank.health < 90",
-	  "tank.range < 41"
+	  "tank.spell(139).range"
 	}, "tank" },
 	{ "2061", { --Flash Heal before atonement
 	  "player.spell(2061).exists",
 	  "!player.spell(81749).exists",
 	  "!player.moving",
 	  "tank.health <= 80",
-	  "target.range < 41"
+	  "target.spell(2061).range"
 	}, "tank" },
 	{ "2061", { --Flash Heal
 	  "player.spell(2061).exists",
 	  "player.spell(81749).exists",
 	  "!player.moving",
 	  "tank.health <= 30",
-	  "target.range < 41"
+	  "target.spell(2061).range"
 	}, "tank" },
 	{ "108968", { --Void Shift
 	  "player.spell(108968).exists",
 	  "player.health >= 80",
 	  "tank.health <= 25",
-	  "tank.range < 41"
+	  "tank.spell(108968).range"
 	}, "tank" },
 	
    --healing
@@ -112,63 +113,63 @@ ProbablyEngine.rotation.register_custom(256, "Blazins Disc leveling", {
       "player.spell(596).exists",
 	  "!player.moving",
 	  "@coreHealing.needsHealing(80, 4)",
-	  "lowest.range < 41"
+	  "lowest.spell(596).range"
 	}, "lowest" },
     { "47540", { --Penance before atonement
 	  "player.spell(47540).exists",
 	  "!player.spell(81749).exists",
 	  "lowest.health <= 80",
-	  "lowest.range < 41"
+	  "lowest.spell(47540).range"
 	}, "lowest" },
 	{ "47540", { --Penance
 	  "player.spell(47540).exists",
 	  "player.spell(81749).exists",
 	  "lowest.health <= 80",
-	  "lowest.range < 41"
+	  "lowest.spell(47540).range"
 	}, "lowest" },
     { "2061", { --Flash Heal before atonement
 	  "player.spell(2061).exists",
 	  "!player.spell(81749).exists",
 	  "!player.moving",
 	  "lowest.health <= 70",
-	  "lowest.range < 41"
+	  "lowest.spell(2061).range"
 	}, "lowest" },
 	{ "2061", { --Flash Heal
 	  "player.spell(2061).exists",
 	  "player.spell(81749).exists",
 	  "!player.moving",
 	  "lowest.health <= 25",
-	  "lowest.range < 41"
+	  "lowest.spell(2061).range"
 	}, "lowest" },
 	{ "17", { --Power Word: Shield
 	  "player.spell(17).exists",
 	  "!lowest.debuff(6788)", --Weakend Soul
 	  "lowest.health <= 50",
-	  "lowest.range < 41"
+	  "lowest.spell(17).range"
 	}, "lowest" },
 	{ "2060", { --Greater Healing
 	  "player.spell(2060).exists",
 	  "!player.moving",
 	  "lowest.health <= 60",
-	  "lowest.range < 41"
+	  "lowest.spell(2060).range"
 	}, "lowest"},
 	{ "32546", { --Binding Heal
 	  "player.spell(32546).exists",
 	  "!player.moving",
 	  "lowest.health <= 40",
-	  "lowest.range < 41"
+	  "lowest.spell(32546).range"
 	}, "lowest"},
 	{ "32546", { --Binding Heal
 	  "player.spell(32546).exists",
 	  "!player.moving",
 	  "player.health <= 70",
-	  "lowest.range < 41"
+	  "lowest.spell(32546).range"
 	}, "lowest" },  
 	{ "139", { --Renew
 	  "player.spell(139).exists",
 	  "!lowest.buff(139)", 
 	  "lowest.health <= 50",
-	  "lowest.range < 41"
+	  "lowest.spell(139).range"
 	}, "lowest"},
 	{ "62618", {
 	  "player.spell(62618).exists",
@@ -188,22 +189,22 @@ ProbablyEngine.rotation.register_custom(256, "Blazins Disc leveling", {
 	  "player.spell(589).exists",
 	  "player.mana > 20",
 	  "target.debuff(589).duration < 2",
-	  "target.range < 41"
+	  "target.spell(589).range"
 	}, "target" },
 	{ "14914", { --Holy Fire
       "player.spell(14914).exists",
 	  "player.spell(129250).cooldown < .001",
-	  "target.range < 31" 
+	  "target.spell(14914).range" 
 	}, "target" },
     { "47540", { --Penance 
 	  "player.spell(47540).exists",
       "player.mana > 20",	  
-	  "target.range < 41"
+	  "target.spell(47540).range"
 	}, "target" },
 	{ "585", {
 	  "player.spell(585).exists",
 	  "player.mana > 20",
-	  "target.range < 41" 
+	  "target.spell(585).range" 
 	}, "target" },	--Smite
 	{ "!/target [target=focustarget, harm, nodead]", "!target.exists" },
 	{ "!/target [target=focustarget, harm, nodead]", "target.range > 40" },
@@ -249,12 +250,12 @@ ProbablyEngine.rotation.register_custom(256, "Blazins Disc lvl solo", {
 	{ "123040", { --Mindbender
 	  "player.spell(123040).exists",
 	  "player.mana < 85",
-	  "target.range < 41"
+	  "target.spell(123040).range"
 	}, "target" },
 	{ "34433", { --Shadowfiend
 	  "player.spell(34433).exists",
       "player.mana < 85",  
-      "target.range < 41" 
+      "target.spell(34433).range" 
     }, "target" },	
 	
   --Attonement
@@ -266,37 +267,49 @@ ProbablyEngine.rotation.register_custom(256, "Blazins Disc lvl solo", {
 	{ "2061", {  --Flash Heal before atonement
 	  "player.spell(2061).exists",
 	  "!player.spell(81749).exists",
+	  "!player.moving",
 	  "player.health <= 50",
 	}, "Player" },
 	{ "2061", {  --Flash Heal 
 	  "player.spell(2061).exists",
 	  "player.spell(81749).exists",
+	  "!player.moving",
 	  "player.health <= 35",
 	}, "Player" }, 
 	{ "589", { --Shadow Word:Pain
 	  "player.spell(589).exists",
+	  "!player.moving",
 	  "target.debuff(589).duration < 2",
-	  "target.range < 41"
+	  "target.spell(589).range"
 	}, "target" },
 	{ "14914", { -- Power Word: Solace
 	  "player.spell(14914).exists",
+	  "!player.moving",
 	  "player.spell(129250).cooldown < .001",
-	  "target.range < 31" 
+	  "target.spell(14914).range" 
 	}, "target" },
 	{ "14914", { --Holy Fire
 	  "player.spell(14914).exists",
+	  "!player.moving",
 	  "player.spell(129250).cooldown < .001",
-	  "target.range < 31" 
+	  "target.spell(14914).range" 
 	}, "target" },
 	{ "47540", { --Penance 
 	   "player.spell(47540).exists",
+	   "!player.moving",
 	   "target.health >= 20",
-	   "target.range < 41"
+	   "target.spell(47540).range"
 	}, "target" },
 	{ "585", {
 	  "player.spell(585).exists",
-	  "target.range < 41",
+	  "!player.moving",
+	  "target.spell(585).range",
     }, "target" },	--Smite
+	{ "589", { --Shadow Word:Pain
+	  "player.spell(589).exists",
+	  "player.moving",
+	  "target.spell(589).range"
+	}, "target" },
 	
 },{	
     --Out of combat buffs/heals
@@ -310,6 +323,7 @@ ProbablyEngine.rotation.register_custom(256, "Blazins Disc lvl solo", {
 	}}, --Inner Focus
 	{ "47540", {
 	 "player.spell(47540).exists",
+	 "spell(47540).range",
 	 "player.health < 100" 
 	}}, --Penance    
 

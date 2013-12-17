@@ -47,7 +47,7 @@ ProbablyEngine.rotation.register_custom(256, "Blazins Disc leveling", {
 	{ "123040", { --Mindbender
 	  "player.spell(123040).exists",
 	  "player.mana < 95",
-	  "target.spell(123040.range"
+	  "target.spell(123040).range"
 	}, "target" },
 	{ "34433", { --Shadowfiend
 	  "player.spell(34433).exists",	
@@ -73,6 +73,7 @@ ProbablyEngine.rotation.register_custom(256, "Blazins Disc leveling", {
    --tank
     { "17", { --Power Word: Shield
       "!tank.debuff(6788).any",
+	  "!tank.buff(17).any",
 	  "tank.health <= 100",
 	  "tank.spell(17).range"
 	}, "tank" },
@@ -144,6 +145,7 @@ ProbablyEngine.rotation.register_custom(256, "Blazins Disc leveling", {
 	{ "17", { --Power Word: Shield
 	  "player.spell(17).exists",
 	  "!lowest.debuff(6788)", --Weakend Soul
+	  "!lowest.buff(17).any",
 	  "lowest.health <= 50",
 	  "lowest.spell(17).range"
 	}, "lowest" },
@@ -262,6 +264,7 @@ ProbablyEngine.rotation.register_custom(256, "Blazins Disc lvl solo", {
     { "17", { --Power Word Shield
 	  "player.spell(17).exists",
       "!player.debuff(6788)",
+	  "!player.buff(17).any",
 	  "player.health <= 60"
 	}},
 	{ "2061", {  --Flash Heal before atonement
